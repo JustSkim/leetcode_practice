@@ -1,37 +1,21 @@
+import java.io.*;
+//这一行可以让我们导入同文件夹下的java包
+
 public class Main {
-    public static void main(String[] args){
-        Solution a = new Solution();
-        int array[] = {5,9,3,2,1,0,2,3,3,1,0,0};
-        int result = a.jump(array);
-        System.out.println(result);
-    }
-    
-}
-class Solution {
-    public int jump(int[] nums) {
-        int lang = nums.length;
-        if(lang==1){
-            return 0;
-        }
-        int count = 0;
-        int i = 0;
-        while(i<lang){
-            int temp = nums[i];
-            if(i+temp>=lang-1){
-                return count+1;
-            }
-            //最大值就是其序数加上其值
-            int biggest = (i+temp)+nums[i+temp];
-            int biggest_index = i+temp;
-            for(int j = i+temp-1;  j>i; j--){
-                if(nums[j]+j > biggest){
-                    biggest = j+nums[j];
-                    biggest_index = j;
-                }
-            }
-            i = biggest_index;
-            count++;
-        }
-        return count;
+     
+    public static void main(String[] args) {
+
+        int array[] = { 0, 1, 2, 3, 5, 9 };
+
+        // 45题
+        // Lt45 a = new Lt45();
+        // int result = a.jump(array);
+        // System.out.println(result);
+
+        Lt46 a = new Lt46();
+        System.out.println(a.permute(array));
+        System.out.println(a.permute(array).size());//ArrayList类的长度要用size属性
+
+
     }
 }
